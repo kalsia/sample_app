@@ -28,5 +28,6 @@ class User < ActiveRecord::Base
                        length: { minimum: 6 }
 
   validates :password_confirmation, presence: true
+  after_validation { self.errors.messages.delete(:password_digest) }
 end
 
