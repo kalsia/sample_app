@@ -1,0 +1,40 @@
+<li>
+  <div class="imageinfo">
+    <img src= "<%= book.image_url %>" width="300"/>
+    <div class="timestamp">
+      Posted <%= time_ago_in_words(book.created_at) %> ago</br>
+
+<% if !current_user.nil? %>
+      by <%= link_to User.find(book.user_id).name, User.find(book.user_id) %>
+<% end %>
+    </div>
+    <% if current_user?(book.user) || current_is_admin? %>
+      <p>
+
+        <%= link_to "Delete", book, method: :delete,
+                                    data: { confirm: "You sure?" },
+                                    class: "btn btn-large btn-primary"  %>
+
+        <%= link_to "Edit", edit_book_path(book),
+                                    class: "btn btn-large btn-primary"  %>
+      </p>
+    <% end %>
+
+
+  </div>
+
+  <div>
+      <div>
+          <h3><%= book.title %></h3></br>
+          <STRONG>Author: </STRONG><%= book.author %></br>
+          <STRONG>Publisher: </STRONG><%= book.publisher %></br>
+          <STRONG>Release date: </STRONG><%= book.release_date %></br>
+          <STRONG>Pages count: </STRONG><%= book.n_pages %></br>
+          <STRONG>ISBN: </STRONG><%= book.isbn %></br>
+          <STRONG>Short description: </STRONG><pre><%= book.description %></pre>
+      </div>
+
+  </div>
+
+  <div style="clear:both"></div>
+</li>
