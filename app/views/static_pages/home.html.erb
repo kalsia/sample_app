@@ -1,6 +1,26 @@
-<div class="center hero-unit">
+<% if signed_in? %>
 
-  <h3>Search and review novels or upload your own!</h3>
-  <div><%= link_to "Sign up now!", signup_path, class: "btn btn-large btn-primary" %></div>
-  <h5>Or check our <%= link_to "Contact", contact_path %> page for more informations!</h5>
+<%= render 'shared/user_bar' %>
+
+<% else %>
+<div width="200">
+  <div class="center hero-unit">
+
+    <h3>Browse novels or upload your own!</h3>
+    <div><%= link_to "Sign up now!", signup_path, class: "btn btn-large btn-primary" %></div>
+    <h5>Or check out <%= link_to "Documentation page", doc_path %> for more informations!</h5>
+
+  </div>
 </div>
+<% end %>
+
+<% if @books.any? %>
+      <h1>Available Books</h1>
+      <%= will_paginate @books %>
+      <ul class="books">
+        <%= render @books %>
+      </ul>
+      <%= will_paginate @books %>
+<% else %>
+      <h1>No books available...</h1>
+<% end %>

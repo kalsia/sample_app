@@ -12,12 +12,14 @@ $grayMediumLight: #eaeaea;
 
 /* universal */
 
+
 html {
   overflow-y: scroll;
 }
 
 body {
   padding-top: 60px;
+  background-color: #E6E6E6;
 }
 
 section {
@@ -88,7 +90,8 @@ footer {
   margin-top: 45px;
   padding-top: 5px;
   border-top: 1px solid #eaeaea;
-  color: #999;
+  color: #555;
+  background-color: #C9C9C9
 }
 
 footer a {
@@ -185,7 +188,53 @@ input {
   }
 }
 
-/* miscellaneous */
+/* books */
+
+.books {
+  list-style: none;
+  margin: 10px 0 0 0;
+
+  li {
+    padding: 10px 0;
+    border-top: 1px solid #e8e8e8;
+  }
+}
+.imageinfo {
+  width: 300px;
+  margin-right: 10px;
+  float: left;
+}
+.content {
+  display: block;
+}
+.timestamp {
+  color: $grayLight;
+}
+.gravatar {
+  float: left;
+  margin-right: 10px;
+}
+aside {
+  textarea {
+    height: 100px;
+    margin-bottom: 5px;
+  }
+}
+
+.book_description{
+  float: left;
+  padding: 15px;
+}
+
+/* misc */
+
+.alignrightclass {
+    text-align: right;
+}
+.alignleftclass {
+    text-align: left;
+}
+
 
 .debug_dump {
   clear: both;

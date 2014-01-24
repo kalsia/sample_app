@@ -1,12 +1,16 @@
 <% provide(:title, @user.name) %>
-<div class="row">
-  <aside class="span4">
-    <section>
-      <h1>
-        <%= gravatar_for @user %>
-        <%= @user.name %>
-      </h1>
-       <%= @user.email %>
-    </section>
-  </aside>
-</div>
+
+  <%= render 'shared/user_bar' %>
+
+  <div>
+    <% if @user.books.any? %>
+      <h1><%= @user.name %>'s Books (<%= @books_count %>) </h1>
+      <%= will_paginate @books %>
+      <ol class="books">
+        <%= render @books %>
+      </ol>
+      <%= will_paginate @books %>
+    <% else %>
+      <h3><%= @user.name %> still didn't insert any book </h3>
+    <% end %>
+  </div>

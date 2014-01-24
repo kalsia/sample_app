@@ -1,0 +1,83 @@
+<% provide(:title, 'Doc') %>
+<h1>About...</h1>
+<p>
+<h3>Author's infos</h3>
+<p>
+      <div>Author: Marco Gaiazzi 713906</div>
+      <div>University of Insubria (Varese)</div>
+      <div>Email me at: <a href="mailto:marco.gaiazzi.ggl@gmail.com">marco.gaiazzi.ggl@gmail.com</a></div>
+      <div>Or contact me on my <a href="https://www.facebook.com/marco.gaiazzi">Facebook page</a></div>
+    </p>
+<h3>Project description</h3>
+<pre>
+'NOVELS DATABASE' is a simple application that allows users perform actions regarding their's or other user's books depending they are logged in/out.
+
+Non registered user: Can only browse available books on the main page.
+
+Registered and logged in user: Can see post's owner and his user page displaying all of the books from that user.
+Only the post owner can edit/delete his own posts.
+
+Administrator: Same as a logged in user but can edit/delete others user's posts.
+
+Users also have a "Gravatar" showing an avatar associated with their email at http://en.gravatar.com/
+
+</pre>
+<h3>Database informations</h3>
+<pre>
+The database comes prepared using custom tasks
+
+Command used to prepare the database is
+
+$ bundle exec rake db:prepare_database
+
+You can also open a console and run the commands:
+
+$ bundle exec rake db:reset
+$ bundle exec rake db:populate
+
+to test how the application behaves in presence of a high number of users and books
+
+ADMIN login info ----> Name: 'marco.gaiazzi.ggl@gmail.com'
+                       Password: 'administrator'
+
+FAKE USERS login info ----> Name: 'fakemail-1@insubria.fake' (Change the number just before the '@')
+                            Password: 'password'
+
+# DATABASE
+#
+# == Schema Information
+#
+# Table name: users
+#
+#  id              :integer          not null, primary key
+#  name            :string(255)
+#  email           :string(255)
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
+#  password_digest :string(255)
+#  remember_token  :string(255)
+#  admin           :boolean          default(FALSE)
+
+# == Schema Information
+#
+# Table name: books
+#
+#  id           :integer          not null, primary key
+#  title        :string(255)
+#  author       :string(255)
+#  publisher    :string(255)
+#  release_date :date
+#  n_pages      :integer
+#  image_url    :string(255)
+#  isbn         :string(255)
+#  description  :text
+#  user_id      :integer
+#  created_at   :datetime         not null
+#  updated_at   :datetime         not null
+</pre>
+<h3>Assuming that...</h3>
+<pre>
+For practical reasons users are registered to the applications by a name(Nickname) and an email address which is used also as login information along with a password.
+</pre>
+</p>
+
